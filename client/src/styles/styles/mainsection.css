@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@1,300&display=swap');
+
+
+.main-section {
+    width: auto;
+    z-index: 0;
+    margin-top: 1.25rem;
+    margin-left: -20rem;
+    padding-top: 1.9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgb(255, 245, 250);
+    border: 2px solid rgb(107, 20, 20);
+    border-style: inset outset;
+    border-radius: 25px;
+}
+.tuote-section {
+    transition: all 1s ease;
+}
+.modified-section {
+    margin-right: 3.1rem;
+    min-height: 60vh;
+    padding-bottom: 6rem;
+}
+.home-cont, .info-cont{
+    margin: 10px;
+}
+.info-cont h1, .home-cont h1{
+    font-family: 'Kaushan Script', cursive;
+}
+.info-cont h3, .home-cont h3{
+    font-family: 'Open Sans', sans-serif;;
+}
+.info-cont p, .home-cont p{
+    font-family: 'Open Sans', sans-serif;
+}
+@media screen and (max-width: 1420px){
+    .tuote-section{
+        margin-left: -20rem;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .tuote-section{
+        margin-left: -22rem;
+        width: auto;
+        transition-property: none;
+    }
+}
+@media screen and (max-width:900px) {
+    .modified-section{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .tuote-section{
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-left: 0px;
+        width: auto;
+        transition-property: none;
+    }
+}

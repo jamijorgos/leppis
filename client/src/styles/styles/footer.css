@@ -1,0 +1,58 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(139, 14, 14);
+    opacity: 0.80;
+    color: #fff;
+    padding: 1.25rem 2.5rem;
+}
+.footer-grid{
+    display: flex;
+    justify-content: space-around;
+    gap: 1.25rem;
+}
+footer h1{
+    width: 180px;
+}
+footer ul{
+    display: grid;
+    width: 70%;
+}
+.footer-link{
+    font-size: 1.1em;
+    color: white;
+    letter-spacing: 1px;;
+    text-decoration: none;
+    border-left: 2px solid white;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+}
+.login-btns{
+    display: grid;
+    justify-content: flex-end;
+}
+.login-btn{
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    border-left: 2px solid white;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+}
+.footer-link:hover, .login-btn:hover{
+    color: black;
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(255, 255, 255));
+    border-left: 4px solid rgb(252, 0, 0);
+}
+footer a::selection, footer h1::selection, footer p small::selection{
+    color: black;
+    background: pink;
+}
+
+@media screen and (max-width: 1150px){
+    footer {
+        padding: 1em;
+        padding-bottom: 2em;
+    }
+}

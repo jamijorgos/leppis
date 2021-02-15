@@ -1,0 +1,72 @@
+@import "./styles/footer.css";
+@import "./styles/mainsection.css";
+@import "./styles/navbar.css";
+@import "./styles/sidebar.css";
+@import "./styles/tuote.css";
+@import "./styles/tuotteet.css";
+@import "./styles/login.css";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-image: url(../images/leppis-background4.jpg);
+    background-attachment: fixed;
+    background-position-y: center;
+    background-position-x: center;
+    overflow-x: hidden;
+}
+*::selection{
+    color: black;
+    background: rgb(255, 214, 221);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.page-container {
+    width: 100%;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.625rem 1.875rem 6.25rem 1.875rem;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 14rem; 
+    transition: padding-bottom 1s ease;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.94;
+}
+.sticky + .page-container {
+    padding-top: 120px;
+}
+.sticky + .login-form {
+    margin-top: 160px;
+}
+
+.disabled {
+    text-decoration: line-through;
+}
+
+@media screen and (max-width: 900px){
+    body {  
+        background-size: cover;
+    }
+    .page-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
