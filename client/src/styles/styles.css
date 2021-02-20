@@ -4,6 +4,7 @@
 @import "./styles/sidebar.css";
 @import "./styles/tuote.css";
 @import "./styles/tuotteet.css";
+@import "./styles/adminpanel.css";
 @import "./styles/login.css";
 
 * {
