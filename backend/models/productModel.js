@@ -5,8 +5,8 @@ const productSchema = mongoose.Schema({
     description: String,
     price: String,
     selectedFile: String,
-    type: String,
-    subtype: String
+    category: String,
+    subcategory: String
 });
 
 const ProductModel = mongoose.model('ProductModel', productSchema);

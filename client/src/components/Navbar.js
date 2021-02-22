@@ -53,7 +53,7 @@ const Navbar = () => {
                 <h4><Link to="/">Leppis Oy</Link></h4>
             </div> 
             <ul className='nav-links'>
-                <li><NavLink to="/" className="nav-link">Koti</NavLink></li>
+                <li><NavLink to="/" className="nav-link">Etusivu</NavLink></li>
                 <li><NavLink to="/tuotteet" className="nav-link tuotteet-link">Tuotteet</NavLink></li>
                 <li><NavLink to="/yhteystiedot" className="nav-link">Yhteystiedot</NavLink></li>
             </ul>

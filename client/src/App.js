@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getProducts } from './actions/productActions';
 
 import MainSection from './components/main-section/MainSection';
 import Navbar from './components/Navbar';
@@ -11,6 +13,13 @@ import './styles/styles.css';
 import ScrollToTop from './components/utensils/ScrollToTop'
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(getProducts());
+  }, [])
+
   return (
       <Router>
         <div className="container">
