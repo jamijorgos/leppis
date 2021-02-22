@@ -11,15 +11,14 @@ export const getProducts = async (req, res) => {
     }
 }
 
-//Add new Product
-export const addProduct = async (req, res) => {
-    const product = req.body;
-    const newProduct = new ProductModel(product);
-
+//Get Products by Category
+export const getProductsByType = async (req, res) => {
+    const { category: category } = req.params;
+    console.log(category);
     try {
-        await newProduct.save();
-        res.status(201).json(newProduct);
+        const allProducts =  await ProductModel.find({category: category});
+        res.status(200).json(allProducts);
     } catch (error) {
-        res.status(409).json({ message: error.message });
+        res.status(404).json({ message: error.message });
     }
 }
