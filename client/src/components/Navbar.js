@@ -17,7 +17,6 @@ const Navbar = () => {
         const sideNav = document.querySelector('.nav-links');
         const navLinks = document.querySelectorAll('.nav-links li');
 
-        //toggle nav
         burger.addEventListener('click', () => {
             //toggle nav
             sideNav.classList.toggle('nav-active');

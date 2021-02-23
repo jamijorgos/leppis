@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@1,300&family=Pacifico&family=Roboto&display=swap');
 .prod-info {
-    z-index: 1;
     background-color: inherit;
     border-left: 2px solid rgb(199, 92, 92);
     border-top: 1px solid rgb(199, 92, 92);

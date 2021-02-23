@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Tuote from './Tuote';
 
-const Tuotteet = () => {
+const Tuotteet = ({ editable }) => {
     const products = useSelector((state) => state.products)
 
     return (
@@ -13,9 +13,10 @@ const Tuotteet = () => {
             </div>
             <div className="prod-grid">
                 {products.map((product) => (
-                    <Tuote key={product._id} product={product}></Tuote>
+                    <Tuote key={product._id} product={product} editable={editable}></Tuote>
                 ))}
             </div>
+            
         </div>
     )
 }
