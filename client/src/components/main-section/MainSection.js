@@ -5,12 +5,12 @@ import Tuotteet from './contents/Tuotteet'
 import Koti from './contents/Koti'
 import Info from './contents/Info'
 
-const MainSection = () => {
+const MainSection = ({ globalCategory, globalSubCategory }) => {
     return (
         <Switch>
             <Route path="/tuotteet">
                 <div className="main-section tuote-section">
-                    <Tuotteet/>
+                    <Tuotteet globalCategory={globalCategory} globalSubCategory={globalSubCategory}/>
                 </div>
             </Route>
             <Route path={["/", "/yhteystiedot"]} exact>

@@ -4,8 +4,8 @@ export const CATEGORIES = [
         minor: ['valitse ala-kategoria']
     },{
         name: 'Leppäkertut', 
-        minor: ['magneetit', 'neulat', 'pinssit', 'korvakorut',
-        'kaulakorut', 'leppäkerttukivet', 'kivileppäkertut', 'avaimenperät']
+        minor: ['Magneetit', 'Neulat', 'Pinssit', 'Korvakorut',
+        'Kaulakorut', 'Leppäkerttukivet', 'Kivileppäkertut', 'Avaimenperät']
     }, {
         name: 'Tuikuttimet', 
         minor: []

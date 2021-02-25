@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 import logoleppis from '../images/navLeppis2.png'
 
-const Navbar = () => {
+const Navbar = ({ setGlobalCategory }) => {
 
     useEffect(() => {
         navSlide();
@@ -53,7 +53,7 @@ const Navbar = () => {
             </div> 
             <ul className='nav-links'>
                 <li><NavLink to="/" className="nav-link">Etusivu</NavLink></li>
-                <li><NavLink to="/tuotteet" className="nav-link tuotteet-link">Tuotteet</NavLink></li>
+                <li><NavLink to="/tuotteet" onClick={(e) => setGlobalCategory()} className="nav-link tuotteet-link">Tuotteet</NavLink></li>
                 <li><NavLink to="/yhteystiedot" className="nav-link">Yhteystiedot</NavLink></li>
             </ul>
             <div className="burger">

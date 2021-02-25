@@ -4,12 +4,12 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { deleteProduct } from '../../../actions/productActions';
 
-const Tuote = ({ product, editable }) => {
+const Tuote = ({ product, editable, setCurrentId }) => {
     //{product._id} - dispatch patch/delete
     const dispatch = useDispatch();
 
     const editClick = () => {
-
+      setCurrentId(product._id)
     }
     const deleteClick = () => {
         confirmAlert({
@@ -37,7 +37,10 @@ const Tuote = ({ product, editable }) => {
                 {editable === true ? 
                     <div>
                         <button onClick={editClick}>Edit</button>
-                        <button onClick={deleteClick}>Delete</button>
+                        <button onClick={deleteClick}>Delete</button> <br />
+                        <label>{product.category}</label> <br />
+                        <label>{product.subcategory}</label> <br />
+                        <label>{product._id}</label> <br />
                     </div> : null}
             </div>
         </div>

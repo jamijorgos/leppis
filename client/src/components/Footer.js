@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Footer = () => {
+const Footer = ({ setGlobalCategory }) => {
     return (
         <footer>
             <div className="footer-grid">
@@ -12,7 +12,7 @@ const Footer = () => {
                 <nav className="footer-links">
                     <ul>
                     <li><Link to="/" className="footer-link">Koti</Link></li>
-                    <li><Link to="/tuotteet" className="footer-link">Tuotteet</Link></li>
+                    <li><Link to="/tuotteet" onClick={(e) => setGlobalCategory()} className="footer-link">Tuotteet</Link></li>
                     <li><Link to="/yhteystiedot" className="footer-link">Yhteystiedot</Link></li>
                     </ul>
                 </nav>

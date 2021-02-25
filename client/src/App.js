@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getProducts } from './actions/productActions';
@@ -13,7 +13,8 @@ import './styles/styles.css';
 import ScrollToTop from './components/utensils/ScrollToTop'
 
 const App = () => {
-
+  const [globalCategory, setGlobalCategory] = useState();
+  const [globalSubCategory, setGlobalSubCategory] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,19 +24,21 @@ const App = () => {
   return (
       <Router>
         <div className="container">
-          <Navbar />
+          <Navbar setGlobalCategory={setGlobalCategory}/>
           <ScrollToTop /> 
           <Switch>
             <Route path="/login" component={Login}/>
             <Route path="/adminpanel" component={AdminPanel}/>
-            <div className="page-container">
-              <Fragment>
-                <Sidebar />
-                <MainSection />
-              </Fragment>
-            </div>
+            <Route path="/">
+              <div className="page-container">
+                <Fragment>
+                  <Sidebar setGlobalCategory={setGlobalCategory} setGlobalSubCategory={setGlobalSubCategory}/>
+                  <MainSection globalCategory={globalCategory} globalSubCategory={globalSubCategory}/>
+                </Fragment>
+              </div>
+            </Route>
           </Switch>
-          <Footer />
+          <Footer setGlobalCategory={setGlobalCategory}/>
         </div>
       </Router>
   );
