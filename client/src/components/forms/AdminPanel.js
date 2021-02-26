@@ -9,16 +9,14 @@ const AdminPanel = () => {
     const [currentId, setCurrentId] = useState(0);
     const [globalCategory, setGlobalCategory] = useState();
     const product = useSelector((state) => (currentId ? state.products.find((product) => product._id === currentId) : null));
-    const [category, setCategory] = useState('valitse kategoria');
     const [prodData, setProdData] = useState({
-        name: '', description: '', price: '', selectedFile: '', category: '', subcategory: ''
+        name: '', description: '', price: '', selectedFile: '', category: 'Leppäkertut', subcategory: ''
     })
     const dispatch = useDispatch();
 
     useEffect(() => {
         getSubCategory();
-        setProdData({ ...prodData, category: category})
-    }, [category])
+    }, [prodData.category])
 
     useEffect(() => {
       if (product) {
@@ -27,15 +25,14 @@ const AdminPanel = () => {
       }
     }, [product]);
 
-    // Ala-kategorian select luodaan ylä-kategorian mukaan
+    // Ala-kategorian selectin vaihtoehdot luodaan ylä-kategorian mukaan
     const getSubCategory = () => {
-        const catSelected = CATEGORIES.filter(({name}) => name === category)[0]
+        let catSelected = CATEGORIES.filter(({name}) => name === prodData.category)[0];
+        
         return (
-          <div>
-            <select id="admin-subselect" onChange={(e) => setProdData({ ...prodData, subcategory: e.target.value})}>
+            <select id="admin-subselect" value={prodData.subcategory} onChange={(e) => setProdData({ ...prodData, subcategory: e.target.value})}>
               {catSelected.minor.map(m => <option key={m}>{m}</option>)}
             </select>
-          </div>
         )
     }
     // Kuvatiedoston pienentäminen ja base64 parse (väliaikainen ratkaisu)
@@ -71,59 +68,94 @@ const AdminPanel = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (currentId === 0) {
-          dispatch(createProduct(prodData))
-          clear();
+        if(validateForm() == true){
+          if (currentId === 0) {
+            dispatch(createProduct(prodData))
+            clear();
+          } else {
+            dispatch(updateProduct(currentId, prodData));
+            clear();
+          }
+          console.log("Tuotteen lisäys/muokkaus suoritettu")
         } else {
-          dispatch(updateProduct(currentId, prodData));
-          clear();
+          console.log("virhe")
         }
+    }
+    // Kenttien tarkistus
+    const validateForm = () => {
+      var nimi = prodData.name;
+      var desc = prodData.description;
+      var price = prodData.price;
+      var image = prodData.selectedFile;
+      var cat = prodData.category;
+      if (nimi == "") {
+        alert("Tuotteen nimi puuttuu!");
+        return false;
+      }
+      if (desc == "") {
+        alert("Tuotteelta puuttuu kuvaus!");
+        return false;
+      }
+      if (price == "") {
+        alert("Tuotteelta puuttuu hinta!");
+        return false;
+      }
+      if (image == "") {
+        alert("Kuvaa ei valittu!");
+        return false;
+      }
+      if (cat == "") {
+        alert("Kategoria puuttuu!");
+        return false;
+      }
+      return true;
     }
     // Kenttien tyhjennys, prodData nollaus
     const clear = () => {
         setCurrentId(0);
-        setProdData({ name: '', description: '', price: '', selectedFile: '', category: '', subcategory: '' })
+        setProdData({ name: '', description: '', price: '', selectedFile: '', category: 'Leppäkertut', subcategory: '' })
         document.getElementById('admin-form').reset();
-        document.getElementById('admin-subselect').value = "";
     }
 
     return (
       <div id="admin-panel">
         <form id="admin-form" autoComplete="off" noValidate onSubmit={handleSubmit}>
-            <h1>admin panel</h1>
-            <select className="admin-filter" onChange={(e) => setGlobalCategory(e.target.value)}>
-                <option value=''>Kaikki</option>{CATEGORIES.map(({name}) => <option key={name} value={name}>{name}</option>)}
-                </select> <br/>
-            <label>nimi</label>
-            <input type="text" 
+            <h1>{currentId === 0 ? 'Lisää tuote' : 'Muokkaa tietoja'}</h1>
+            <label>Nimi</label>
+            <input id="name-input" type="text" 
               value={prodData.name}
               onChange={(e) => setProdData({ ...prodData, name: e.target.value})}
               /> <br/>
             <label>kuvaus</label>
-            <input type="text"
+            <input id="desc-input" type="text"
               value={prodData.description}
               onChange={(e) => setProdData({ ...prodData, description: e.target.value})}
               /><br/>
             <label>hinta</label>
-            <input type="text" 
+            <input id="price-input" type="text" 
               value={prodData.price}
               onChange={(e) => setProdData({ ...prodData, price: e.target.value})}
               /> <br/>
             <label>kuva</label>
-            <input type="file" onChange={fileChangedHandler}/>
-            <img src={prodData.selectedFile} alt=''/> <br />
+            <input type="file" onChange={fileChangedHandler}/> <br/>
             <label>kategoria</label>
             <div>
-                <select id="admin-select" onChange={(e) => setCategory(e.target.value)}>
+                <select id="admin-select" value={prodData.category} onChange={(e) => setProdData({ ...prodData, category: e.target.value})}>
                 {CATEGORIES.map(({name}) => <option key={name} value={name}>{name}</option>)}
                 </select> <br/>
-                <label>ala-kategoria</label>
+                <label>ala-kategoria</label> <br />
                 {getSubCategory()}
             </div>
-            <button type="submit">Tallenna</button>
-            <button type="button" onClick={clear}>Tyhjennä</button>
+            <button type="submit">Tallenna</button> 
+            <button type="button" onClick={clear}>Tyhjennä</button> <br />
+            <img src={prodData.selectedFile} alt=''/>
         </form>
-        <Tuotteet editable={true} setCurrentId={setCurrentId} globalCategory={globalCategory}/>
+        <div className="admin-grid">
+            <select className="admin-filter" onChange={(e) => setGlobalCategory(e.target.value)}>
+                <option value=''>Kaikki</option>{CATEGORIES.map(({name}) => <option key={name} value={name}>{name}</option>)}
+            </select> <br/>
+            <Tuotteet editable={true} setCurrentId={setCurrentId} globalCategory={globalCategory}/>
+        </div>
       </div>
         
     )

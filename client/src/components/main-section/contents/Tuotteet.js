@@ -4,6 +4,7 @@ import Tuote from './Tuote';
 
 const Tuotteet = ({ editable, setCurrentId, globalCategory, globalSubCategory }) => {
     let products = useSelector((state) => state.products);
+
     if(globalCategory){
         products = products.filter(product => product.category === globalCategory)
         if(globalSubCategory){
@@ -14,13 +15,14 @@ const Tuotteet = ({ editable, setCurrentId, globalCategory, globalSubCategory })
     return (
         <div>
             <div className="prod-title-grid">
-                <h2 className="prod-title">{globalCategory}</h2>
+                <h2 className="prod-title">{globalCategory == (null || '') ? 'Tuotteet' : globalCategory}</h2>
                 <h3 className="prod-subtitle">{globalSubCategory}</h3>
             </div>
             <div className="prod-grid">
-                {products.map((product) => (
+                {(products.length <= 0 ? <h3 className="prod-placeholder">Ei vielä tuotteita</h3> : 
+                products.map((product) => (
                     <Tuote key={product._id} product={product} editable={editable} setCurrentId={setCurrentId}></Tuote>
-                ))}
+                )))}
             </div>
             
         </div>

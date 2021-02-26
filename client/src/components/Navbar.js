@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 import logoleppis from '../images/navLeppis2.png'
 
-const Navbar = ({ setGlobalCategory }) => {
+const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
 
     useEffect(() => {
         navSlide();
@@ -12,6 +12,7 @@ const Navbar = ({ setGlobalCategory }) => {
         toggleSticky();
     }, []);
 
+    // Mobiili navbar animaatiot
     const navSlide = () => {
         const burger = document.querySelector('.burger');
         const sideNav = document.querySelector('.nav-links');
@@ -33,6 +34,7 @@ const Navbar = ({ setGlobalCategory }) => {
             burger.classList.toggle('toggle');
         })
     }
+    // Sticky navbar
     const toggleSticky= () => {
         const nav = document.querySelector('.navbar');
 
@@ -44,6 +46,11 @@ const Navbar = ({ setGlobalCategory }) => {
             }
         });
     }
+    // Reset global category
+    const tuoteClick = () => {
+        setGlobalCategory('');
+        setGlobalSubCategory();
+    }
 
     return (
         <div className='navbar'>
@@ -53,7 +60,7 @@ const Navbar = ({ setGlobalCategory }) => {
             </div> 
             <ul className='nav-links'>
                 <li><NavLink to="/" className="nav-link">Etusivu</NavLink></li>
-                <li><NavLink to="/tuotteet" onClick={(e) => setGlobalCategory()} className="nav-link tuotteet-link">Tuotteet</NavLink></li>
+                <li><NavLink to="/tuotteet" onClick={(e) => tuoteClick()} className="nav-link tuotteet-link">Tuotteet</NavLink></li>
                 <li><NavLink to="/yhteystiedot" className="nav-link">Yhteystiedot</NavLink></li>
             </ul>
             <div className="burger">

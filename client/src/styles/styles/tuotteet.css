@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@1,300&family=Pacifico&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@1,300&display=swap');
+
 
 .prod-grid {
     display: grid;
@@ -27,6 +30,12 @@
     margin-top: 1rem;
     font-size: 1.24em;
     transition: all 0.2s;
+}
+.prod-placeholder{
+    margin-left: 3rem;
+    margin-top: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
 }
 
 @media screen and (max-width:700px){

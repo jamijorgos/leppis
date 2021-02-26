@@ -11,3 +11,16 @@
     border-style: inset outset;
     border-radius: 25px;
 }
+#admin-form {
+    position: absolute;
+}
+.admin-grid {
+    margin-left: 270px;
+    display: flex;
+    flex-direction: column;
+}
+.admin-filter {
+    max-width: 200px;
+    font-size: 1rem;
+    margin-left: 20px;
+}

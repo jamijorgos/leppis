@@ -38,14 +38,6 @@ const Sidebar = ({ setGlobalCategory, setGlobalSubCategory }) => {
                         <li><Link onClick={(e) => subClick(e.target.text)} to="/tuotteet/leppikset/avaimenpera">Avaimenperät</Link></li>
                     </ul>
                 </nav>
-                <h3 className="sb-title"><Link onClick={(e) => mainClick(e.target.text)} to="/tuotteet/tuikuttimet">Tuikuttimet</Link></h3>
-                <h3 className="sb-title"><Link onClick={(e) => mainClick(e.target.text)} to="/tuotteet/uusiolasit">Uusiolasit</Link></h3>
-                <nav>
-                    <ul>
-                        <li><Link onClick={(e) => subClick(e.target.text)} to="/tuotteet/uusiolasit/lasialuset">Lasialuset</Link></li>
-                        <li><Link onClick={(e) => subClick(e.target.text)} to="/tuotteet/uusiolasit/saksitelineet">Saksitelineet</Link></li>
-                    </ul>
-                </nav>
                 <h3 className="sb-title"><Link onClick={(e) => mainClick(e.target.text)} to="/tuotteet/kierratyskasityo">Kierrätyskäsityö</Link></h3>
                 <nav>
                         <ul>
@@ -56,6 +48,14 @@ const Sidebar = ({ setGlobalCategory, setGlobalSubCategory }) => {
                             <li><Link onClick={(e) => subClick(e.target.text)} to="/tuotteet/kierratyskasityo/muut">Muut</Link></li>
                         </ul>
                 </nav>
+                <h3 className="sb-title"><Link onClick={(e) => mainClick(e.target.text)} to="/tuotteet/uusiolasit">Uusiolasit</Link></h3>
+                <nav>
+                    <ul>
+                        <li><Link onClick={(e) => subClick(e.target.text)} to="/tuotteet/uusiolasit/lasialuset">Lasialuset</Link></li>
+                        <li><Link onClick={(e) => subClick(e.target.text)} to="/tuotteet/uusiolasit/saksitelineet">Saksitelineet</Link></li>
+                    </ul>
+                </nav>
+                <h3 className="sb-title"><Link onClick={(e) => mainClick(e.target.text)} to="/tuotteet/tuikuttimet">Tuikuttimet</Link></h3>
                 <h3 className="sb-title"><Link onClick={(e) => mainClick(e.target.text)} to="/tuotteet/muut">Muut</Link></h3>
             </div>
         </div>

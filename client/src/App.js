@@ -24,7 +24,7 @@ const App = () => {
   return (
       <Router>
         <div className="container">
-          <Navbar setGlobalCategory={setGlobalCategory}/>
+          <Navbar setGlobalCategory={setGlobalCategory} setGlobalSubCategory={setGlobalSubCategory}/>
           <ScrollToTop /> 
           <Switch>
             <Route path="/login" component={Login}/>
@@ -38,7 +38,7 @@ const App = () => {
               </div>
             </Route>
           </Switch>
-          <Footer setGlobalCategory={setGlobalCategory}/>
+          <Footer setGlobalCategory={setGlobalCategory} setGlobalSubCategory={setGlobalSubCategory}/>
         </div>
       </Router>
   );
