@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Route, Switch} from 'react-router-dom';
 
 import Tuotteet from './contents/Tuotteet'
 import Koti from './contents/Koti'

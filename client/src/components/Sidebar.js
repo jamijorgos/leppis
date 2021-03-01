@@ -4,13 +4,14 @@ import { CATEGORIES } from './utensils/Categories'
 
 const Sidebar = ({ setGlobalCategory, setGlobalSubCategory }) => {
 
+    // Yläkategoriaa klikattaessa
     const mainClick = (e) => {
         setGlobalCategory(e);
         setGlobalSubCategory(null);
     }
+    // Alakategoriaa klikattaessa (Etsii, mihin yläkategoriaan kuuluu)
     const subClick = (e) => {
         let index = 0;
-        let sub = 0;
         const heads = CATEGORIES.map((category) => category.name);
         const minors = CATEGORIES.map((category) => category.minor);
         minors.forEach(

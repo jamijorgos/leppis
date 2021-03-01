@@ -25,7 +25,7 @@ const AdminPanel = () => {
       }
     }, [product]);
 
-    // Ala-kategorian selectin vaihtoehdot luodaan ylä-kategorian mukaan
+    // Ala-kategorian selectin vaihtoehdot luodaan ylä-kategorian vaihtuessa
     const getSubCategory = () => {
         let catSelected = CATEGORIES.filter(({name}) => name === prodData.category)[0];
         
@@ -120,20 +120,11 @@ const AdminPanel = () => {
         <form id="admin-form" autoComplete="off" noValidate onSubmit={handleSubmit}>
             <h1>{currentId === 0 ? 'Lisää tuote' : 'Muokkaa tietoja'}</h1>
             <label>Nimi</label>
-            <input id="name-input" type="text" 
-              value={prodData.name}
-              onChange={(e) => setProdData({ ...prodData, name: e.target.value})}
-              /> <br/>
+            <input id="name-input" type="text" value={prodData.name} onChange={(e) => setProdData({ ...prodData, name: e.target.value})}/> <br/>
             <label>kuvaus</label>
-            <input id="desc-input" type="text"
-              value={prodData.description}
-              onChange={(e) => setProdData({ ...prodData, description: e.target.value})}
-              /><br/>
+            <input id="desc-input" type="text" value={prodData.description} onChange={(e) => setProdData({ ...prodData, description: e.target.value})}/><br/>
             <label>hinta</label>
-            <input id="price-input" type="text" 
-              value={prodData.price}
-              onChange={(e) => setProdData({ ...prodData, price: e.target.value})}
-              /> <br/>
+            <input id="price-input" type="text" value={prodData.price} onChange={(e) => setProdData({ ...prodData, price: e.target.value})}/> <br/>
             <label>kuva</label>
             <input type="file" onChange={fileChangedHandler}/> <br/>
             <label>kategoria</label>

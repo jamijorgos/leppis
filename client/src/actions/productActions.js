@@ -1,5 +1,7 @@
 import * as api from '../api';
 
+// Action kutsut backendille
+// Hae kaikki
 export const getProducts = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
@@ -9,7 +11,7 @@ export const getProducts = () => async (dispatch) => {
         console.log(error.message);
     }
 }
-
+// Lisää tuote
 export const createProduct = (product) => async (dispatch) => {
     try {
         const { data } = await api.addProduct(product)
@@ -19,7 +21,7 @@ export const createProduct = (product) => async (dispatch) => {
         console.log(error.message);
     }
 }
-
+// Poista tuote
 export const deleteProduct = (id) => async (dispatch) => {
     try {
         await api.deleteProduct(id)
@@ -29,7 +31,7 @@ export const deleteProduct = (id) => async (dispatch) => {
         console.log(error.message);
     }
 }
-
+// Päivitä tuotteen tietoja
 export const updateProduct = (id, product) => async (dispatch) => {
     try {
         const { data } = await api.updateProduct(id, product);

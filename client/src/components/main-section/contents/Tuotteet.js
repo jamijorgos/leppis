@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import Tuote from './Tuote';
 
 const Tuotteet = ({ editable, setCurrentId, globalCategory, globalSubCategory }) => {
     let products = useSelector((state) => state.products);
 
-    if(globalCategory){
-        products = products.filter(product => product.category === globalCategory)
-        if(globalSubCategory){
-            products = products.filter(product => product.subcategory === globalSubCategory)
+    try {
+        if(globalCategory){
+            products = products.filter(product => product.category === globalCategory)
+            if(globalSubCategory){
+                products = products.filter(product => product.subcategory === globalSubCategory)
+            }
         }
+    } catch (error) {
+        console.log(error.message);
     }
 
     return (

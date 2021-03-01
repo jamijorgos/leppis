@@ -19,7 +19,7 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
         const navLinks = document.querySelectorAll('.nav-links li');
 
         burger.addEventListener('click', () => {
-            //toggle nav
+            // Navbar dropdown animaatio
             sideNav.classList.toggle('nav-active');
             const sidebar = document.querySelector('.sidebar');
             
@@ -30,7 +30,7 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
             } catch (error) {
                 console.log(error.message)
             }
-            //animate links
+            // Linkkien animaatio
             navLinks.forEach((link, index) => {
                 if(link.style.animation){
                     link.style.animation = '';

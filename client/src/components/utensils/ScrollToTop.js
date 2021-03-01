@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 
+// Palauttaa sivun alkuun 
 function ScrollToTop({ history }) {
   useEffect(() => {
     const unlisten = history.listen(() => {

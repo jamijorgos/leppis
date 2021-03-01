@@ -6,6 +6,7 @@ const Footer = ({ setGlobalCategory, setGlobalSubCategory }) => {
     useEffect(() => {
         tuoteClick();
     }, []);
+    
     const tuoteClick = () => {
         setGlobalCategory('');
         setGlobalSubCategory();

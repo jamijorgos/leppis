@@ -11,9 +11,11 @@ const Tuote = ({ product, editable, setCurrentId }) => {
         addAdminCss();
     }, []);
 
+    // Tuote viedään editoitavaksi admin-formiin
     const editClick = () => {
       setCurrentId(product._id)
     }
+    // Tuotteen poistolle
     const deleteClick = () => {
         confirmAlert({
             title: 'Oletko varma?',
@@ -29,6 +31,7 @@ const Tuote = ({ product, editable, setCurrentId }) => {
             ]
           });
     }
+    // Admin tuote-gridin oma css
     const addAdminCss= () => {
         const prod = document.querySelectorAll('.prod-flex');
         
