@@ -51,9 +51,7 @@ const AdminPanel = () => {
                 100,
                 0,
                 uri => {
-                    //console.log(uri) //testausta
                     setProdData({ ...prodData, selectedFile: uri})
-                    //console.log(prodData); // testausta
                 },
                 'base64',
                 150,

@@ -23,8 +23,12 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
             sideNav.classList.toggle('nav-active');
             const sidebar = document.querySelector('.sidebar');
             
-            if(!sideNav.classList.contains('nav-active') && sidebar.style.display != "none"){
-                toggleSubMenu();
+            try {
+                if(!sideNav.classList.contains('nav-active') && sidebar.style.display != "none"){
+                    toggleSubMenu();
+                }
+            } catch (error) {
+                console.log(error.message)
             }
             //animate links
             navLinks.forEach((link, index) => {
@@ -62,14 +66,24 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
         const sidebar = document.querySelector('.sidebar');
         var WIDTH_LIMIT = 900;
         var windowWidth = window.innerWidth;
-        if(sidebar.style.display == 'none' && windowWidth <= WIDTH_LIMIT){
-            sidebar.style.display = 'block';
-        } else if (windowWidth <= WIDTH_LIMIT){
-            sidebar.style.display = 'none';
+        try {
+            if(sidebar.style.display == 'none' && windowWidth <= WIDTH_LIMIT){
+                sidebar.style.display = 'block';
+            } else if (windowWidth <= WIDTH_LIMIT){
+                sidebar.style.display = 'none';
+            }
+        } catch (error) {
+            console.log(error.message)
         }
         window.addEventListener("resize", function(){
-            if(window.innerWidth >= 900)
-                sidebar.style.display = 'block';
+            try {
+                if(window.innerWidth >= 900)
+                    sidebar.style.display = 'block';
+                if(window.innerWidth < 900)
+                    sidebar.style.display = 'none';
+            } catch (error) {
+                console.log(error.message)
+            }
         })
     }
 
