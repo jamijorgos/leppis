@@ -8,9 +8,10 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Login from './components/forms/Login'
+import Register from './components/forms/Register'
 import AdminPanel from './components/forms/AdminPanel'
-import './styles/styles.css';
 import ScrollToTop from './components/utensils/ScrollToTop'
+import './styles/styles.css';
 
 const App = () => {
   const [globalCategory, setGlobalCategory] = useState();
@@ -28,6 +29,7 @@ const App = () => {
           <ScrollToTop /> 
           <Switch>
             <Route path="/login" component={Login}/>
+            <Route path="/register" component={Register}/>
             <Route path="/adminpanel" component={AdminPanel}/>
             <Route path="/">
               <div className="page-container">

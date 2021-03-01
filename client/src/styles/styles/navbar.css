@@ -114,7 +114,7 @@
         position: absolute;
         right: -100vh;
         height: 0vh;
-        top: 13.6vh;
+        top: 13.8vh;
         background-color: rgb(253, 248, 236);
         border: 2px solid rgb(107, 20, 20);
         border-top: none;
@@ -130,8 +130,8 @@
         opacity: 0;
         transform: translateX(500px);
     }
-    .tuotteet-link:hover{
-        /*kaikki tuotteet -menu */
+    .tuotteet-link:hover + .sidebar{
+        /* :// */
     }
     .burger {
         display: block;
@@ -167,7 +167,7 @@
         width: 3rem;
     }
     .nav-links {
-        top: 10.55vh;
+        top: 11.84vh;
         width: 50%;
     }
 }

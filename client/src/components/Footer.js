@@ -27,7 +27,7 @@ const Footer = ({ setGlobalCategory, setGlobalSubCategory }) => {
                 </nav>
                 <ul className='login-btns'>
                     <li><Link to="/login" className="login-btn">Kirjaudu</Link></li>
-                    <li><a className="login-btn disabled" href="#">Rekisteröidy</a></li>
+                    <li><Link to="/register" className="login-btn disabled">Rekisteröidy</Link></li>
                     <li><Link to="/adminpanel" className="login-btn">Admin</Link></li>
                 </ul>
             </div>

@@ -12,7 +12,7 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
         toggleSticky();
     }, []);
 
-    // Mobiili navbar animaatiot
+    // Mobiili navbar animaatiot    
     const navSlide = () => {
         const burger = document.querySelector('.burger');
         const sideNav = document.querySelector('.nav-links');
@@ -21,7 +21,11 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
         burger.addEventListener('click', () => {
             //toggle nav
             sideNav.classList.toggle('nav-active');
-
+            const sidebar = document.querySelector('.sidebar');
+            
+            if(!sideNav.classList.contains('nav-active') && sidebar.style.display != "none"){
+                toggleSubMenu();
+            }
             //animate links
             navLinks.forEach((link, index) => {
                 if(link.style.animation){
@@ -30,8 +34,9 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
                     link.style.animation = `navLinkFade 0.3s ease forwards ${index / 10 + 0.2}s`
                 }
             });
-            //Burger animation
+            //Burger animaatio
             burger.classList.toggle('toggle');
+            
         })
     }
     // Sticky navbar
@@ -50,6 +55,22 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
     const tuoteClick = () => {
         setGlobalCategory('');
         setGlobalSubCategory();
+        toggleSubMenu();
+    }
+    //Tuotevalikon avaus/sulkeminen mobiilissa
+    const toggleSubMenu = () => {
+        const sidebar = document.querySelector('.sidebar');
+        var WIDTH_LIMIT = 900;
+        var windowWidth = window.innerWidth;
+        if(sidebar.style.display == 'none' && windowWidth <= WIDTH_LIMIT){
+            sidebar.style.display = 'block';
+        } else if (windowWidth <= WIDTH_LIMIT){
+            sidebar.style.display = 'none';
+        }
+        window.addEventListener("resize", function(){
+            if(window.innerWidth >= 900)
+                sidebar.style.display = 'block';
+        })
     }
 
     return (

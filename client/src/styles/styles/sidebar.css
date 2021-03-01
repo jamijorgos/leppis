@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@1,300&display=swap');
 .sidebar {
     z-index: 0;
+    display: block;
     background-color: rgb(253, 248, 236);
     border: 2px solid rgb(107, 20, 20);
     border-radius: 1.25rem;
@@ -46,11 +47,43 @@
 }
 @media screen and (max-width: 1420px){
     .sidebar{
+        display: block;
         width: 14.375rem;
     }
 }
 @media screen and (max-width: 900px){
-    .sidebar{
-        display: none;
+    .sidebar-parent{
+        z-index: 1;
+        position: absolute;
+        align-content: space-around;
+        padding-left: 10px;
+        height: 100%;
+        width: 35vh;
+        top: 10vh;
+        right: 40%;
+        left: auto;
     }
+    .sidebar{
+        z-index: 1;
+        display: none;
+        position: sticky;
+        top: 10vh;
+        right: 40%;
+        left: auto;
+        transition: all 0.3s;
+    }
+    .sb-title {
+        font-size: 1rem;
+    }
+    .sidebar li{
+        font-size: 0.8rem;
+    }
+    
+}
+@media screen and (max-width: 600px){
+    .sidebar-parent{
+        top: 8vh;
+        right: 50%;
+    }
+    
 }

@@ -23,7 +23,7 @@ const Sidebar = ({ setGlobalCategory, setGlobalSubCategory }) => {
     }
 
     return (
-        <div>
+        <div className="sidebar-parent">
             <div className="sidebar">
                 <h3 className="sb-title"><Link onClick={(e) => mainClick(e.target.text)} to="/tuotteet/leppikset">Leppäkertut</Link></h3>
                 <nav>
