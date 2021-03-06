@@ -1,4 +1,4 @@
-import { getProducts } from "../actions/productActions"; //en muista miksi tämä täällä, mutta pelottaa poistaa?
+import { getProducts } from "../actions/productActions"; 
 
 export default (state = [], action) => {
     switch (action.type) {

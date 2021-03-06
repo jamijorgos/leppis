@@ -5,7 +5,7 @@ import Tuote from './Tuote';
 const Tuotteet = ({ editable, setCurrentId, globalCategory, globalSubCategory }) => {
     let products = useSelector((state) => state.products);
 
-    try {
+    try { // Filtteröidään näytettävät tuotteet valitun kategorian mukaan
         if(globalCategory){
             products = products.filter(product => product.category === globalCategory)
             if(globalSubCategory){

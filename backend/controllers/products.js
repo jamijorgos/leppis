@@ -11,7 +11,7 @@ export const getProducts = async (req, res) => {
     }
 }
 
-// Haetaan tuotteet kategorian mukaan (Ei toistaiseksi käytössä, saattaa korvata getProducts() ajan säästämiseksi, mikäli mahdollista)
+// Haetaan tuotteet kategorian mukaan (Ei toistaiseksi käytössä, saattaa korvata ylemmän getProducts() ajan säästämiseksi, mikäli tarpeellista)
 export const getProductsByType = async (req, res) => {
     const { category: category } = req.params;
     console.log(category);

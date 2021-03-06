@@ -130,9 +130,6 @@
         opacity: 0;
         transform: translateX(500px);
     }
-    .tuotteet-link:hover + .sidebar{
-        /* :// */
-    }
     .burger {
         display: block;
     }

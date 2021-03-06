@@ -61,7 +61,7 @@ const Navbar = ({ setGlobalCategory, setGlobalSubCategory }) => {
         setGlobalSubCategory();
         toggleSubMenu();
     }
-    //Tuotevalikon avaus/sulkeminen mobiilissa
+    // Tarkempi tuotevalikko ja avaus/sulkeminen mobiilissa (sidebar)
     const toggleSubMenu = () => {
         const sidebar = document.querySelector('.sidebar');
         var WIDTH_LIMIT = 900;

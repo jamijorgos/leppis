@@ -34,6 +34,7 @@
     float: right;
     border-top-right-radius: 6.25rem;
     max-width: 21.875rem;
+    max-height: 150px;
     transition: max-width 0.4s ease;
     margin-left: -20px;
 }

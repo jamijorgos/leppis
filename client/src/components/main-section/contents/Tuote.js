@@ -11,11 +11,11 @@ const Tuote = ({ product, editable, setCurrentId }) => {
         addAdminCss();
     }, []);
 
-    // Tuote viedään editoitavaksi admin-formiin
+    // (AdminPanel) Tuote viedään editoitavaksi admin-formiin
     const editClick = () => {
       setCurrentId(product._id)
     }
-    // Tuotteen poistolle
+    // (AdminPanel) Tuotteen poistolle
     const deleteClick = () => {
         confirmAlert({
             title: 'Oletko varma?',
@@ -31,7 +31,7 @@ const Tuote = ({ product, editable, setCurrentId }) => {
             ]
           });
     }
-    // Admin tuote-gridin oma css
+    // (AdminPanel) Admin tuote-gridin oma css
     const addAdminCss= () => {
         const prod = document.querySelectorAll('.prod-flex');
         
@@ -47,7 +47,7 @@ const Tuote = ({ product, editable, setCurrentId }) => {
                 <textarea className="prod-desc" readOnly={true} value={product.description}/>
                 <p className="prod-price">{product.price}</p>
                 <img className="prod-img" src={product.selectedFile}/>  
-                {editable === true ? 
+                {editable === true ? // Renderöidään vain Admin paneelin yhteydessä 
                     <div className="admin-info-grid">
                       <div className="admin-lbls">
                         <label className="admin-lbl" >{product.category}</label> <br />
