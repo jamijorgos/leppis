@@ -67,8 +67,8 @@
         z-index: 1;
         display: none;
         position: sticky;
-        top: 10vh;
-        right: 40%;
+        top: 12vh;
+        right: 30%;
         left: auto;
         transition: all 0.3s;
     }

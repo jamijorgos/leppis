@@ -6,11 +6,10 @@ import mongoose from 'mongoose';
 import productRoutes from './routes/products.js';
 import adminRoutes from './routes/admin.js'
 
-// Poistaa deprecation warningit konsolista
-mongoose.set('useUnifiedTopology', true);
-mongoose.set('useNewUrlParser', true);
+// Poistaa deprecation warningit konsolista, aiheutti virheen uudessa mongoose versiossa
+/*mongoose.set('useNewUrlParser', true);
 mongoose.set('useCreateIndex', true);
-mongoose.set('useFindAndModify', false);
+mongoose.set('useFindAndModify', false);*/
 
 const app = express();
 const port = process.env.PORT || 5000;
